@@ -1,0 +1,12 @@
+/home/supriya/source/repo/FluentDataTableValidator/bin/Debug/net6.0/FluentDataTableValidator.deps.json
+/home/supriya/source/repo/FluentDataTableValidator/bin/Debug/net6.0/FluentDataTableValidator.dll
+/home/supriya/source/repo/FluentDataTableValidator/bin/Debug/net6.0/FluentDataTableValidator.pdb
+/home/supriya/source/repo/FluentDataTableValidator/obj/Debug/net6.0/FluentDataTableValidator.csproj.AssemblyReference.cache
+/home/supriya/source/repo/FluentDataTableValidator/obj/Debug/net6.0/FluentDataTableValidator.GeneratedMSBuildEditorConfig.editorconfig
+/home/supriya/source/repo/FluentDataTableValidator/obj/Debug/net6.0/FluentDataTableValidator.AssemblyInfoInputs.cache
+/home/supriya/source/repo/FluentDataTableValidator/obj/Debug/net6.0/FluentDataTableValidator.AssemblyInfo.cs
+/home/supriya/source/repo/FluentDataTableValidator/obj/Debug/net6.0/FluentDataTableValidator.csproj.CoreCompileInputs.cache
+/home/supriya/source/repo/FluentDataTableValidator/obj/Debug/net6.0/FluentDataTableValidator.dll
+/home/supriya/source/repo/FluentDataTableValidator/obj/Debug/net6.0/refint/FluentDataTableValidator.dll
+/home/supriya/source/repo/FluentDataTableValidator/obj/Debug/net6.0/FluentDataTableValidator.pdb
+/home/supriya/source/repo/FluentDataTableValidator/obj/Debug/net6.0/ref/FluentDataTableValidator.dll
