@@ -2,6 +2,7 @@ using System.Data;
 using FluentDataTableValidator.ValidatorEngine;
 using FluentDataTableValidator.Factories;
 using FluentDataTableValidator.Helpers;
+using System.Collections;
 
 namespace FluentDataTableValidator;
 public sealed class DataColumnValidator : IDataColumnValidator
@@ -14,16 +15,23 @@ public sealed class DataColumnValidator : IDataColumnValidator
         _columnValidationRules = new List<IDataColumnValidationRule>();
     }
 
-    public DataColumn NotNull()
+    public DataColumnValidator NotNull()
     {
-        var rule = DataColumnValdationRuleFactory.GetDataColumnValidationRule(ColumnValidationRules.NotNullRule);
-        if (rule is not null)
-        {
-            _columnValidationRules.Add(rule);
-        }
-        return _dataColumn;
+        _columnValidationRules.Add(new ValueNotNullValidationRule());
+        return this;
     }
 
+    public DataColumnValidator ValueIsOfType(Type type)
+    {
+        _columnValidationRules.Add(new ValueDataTypeValidationRule(type));
+        return this;
+    }
+
+    public DataColumnValidator ValueIsInCollection(ArrayList acceptedValues)
+    {
+        _columnValidationRules.Add(new ValueAcceptedValuesRule(acceptedValues));
+        return this;
+    }
     internal List<IDataColumnValidationRule> GetColumnValidationRules()
     {
         return _columnValidationRules;

@@ -1,6 +1,8 @@
 ﻿using System.Data;
 using FluentDataTableValidator.Factories;
 using FluentDataTableValidator.Models;
+using FluentDataTableValidator.Helpers;
+using FluentDataTableValidator.ValidatorEngine;
 namespace FluentDataTableValidator;
 public sealed class DataTableValidator
 {
@@ -27,11 +29,12 @@ public sealed class DataTableValidator
     {
         var errorModels = new List<ErrorModel>();
         int rowIndex = 0, colIndex = 0;
+        var cache = new CacheHelper<List<IDataColumnValidationRule>> ();
         foreach (DataRow row in _dataTable.Rows)
         {
             foreach (DataColumn col in _dataTable.Columns)
             {
-                var rules = _columnValidatorDict[colIndex].GetColumnValidationRules();
+                var rules = cache.GetOrCreate(colIndex,() =>_columnValidatorDict[colIndex].GetColumnValidationRules());
 
                 rules.ForEach(rule => rule.IsValid(row, col, rowIndex, colIndex, errorModels));
 

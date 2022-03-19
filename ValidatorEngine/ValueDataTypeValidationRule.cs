@@ -3,22 +3,23 @@ using FluentDataTableValidator.Models;
 namespace FluentDataTableValidator.ValidatorEngine;
 public class ValueDataTypeValidationRule : IDataColumnValidationRule
 {
-    public bool IsValid(DataRow row, DataColumn column, int rowNum, int colNum, List<ErrorModel> errorModels)
+    private Type _expectedDataType;
+    public ValueDataTypeValidationRule(Type dataType)
     {
-        // if(column.GetDataTypeRule() == null) 
-        // {
-        //     return true;
-        // }
-        // if(column.DataType == column.GetDataTypeRule())
-        // {
-        //     return true;
-        // }
-        // else
-        // {
-        //     var errorModel = new ErrorModel(rowNum, colNum, column.GetmessageOnDataTypeValidationFail());
-        //     errorModels.Add(errorModel);
-        //     return false;            
-        // }
-        return false;
+        _expectedDataType = dataType;
+    }
+    public bool IsValid(DataRow row,
+    DataColumn column, int rowNum, int colNum, List<ErrorModel> errorModels)
+    {
+        if (column.DataType == _expectedDataType)
+        {
+            return true;
+        }
+        else
+        {
+            var errorModel = new ErrorModel(rowNum, colNum, "Data type check failed");
+            errorModels.Add(errorModel);
+            return false;
+        }
     }
 }
